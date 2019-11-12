@@ -1,0 +1,12 @@
+# Compiled Stuff
+*.elf
+*.nacp
+*.nro
+
+# build folder
+build/
+
+# Plutonium
+OLD_Plutonium/
+Plutonium/
+

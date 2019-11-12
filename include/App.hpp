@@ -4,8 +4,13 @@
 // libraries
 #include <pu/Plutonium>
 
+// Common Namespaces
+#define UI pu::ui
+#define ELM pu::ui::elm
+#define COLOR pu::ui::Color
+
 // define our main objects here
-class CustomLayout : public pu::ui::Layout {
+class CustomLayout : public UI::Layout {
     public:
         // declare constructor to be defined in App.cpp
         CustomLayout();
@@ -18,10 +23,12 @@ class CustomLayout : public pu::ui::Layout {
 
         // define our objects here
         // add ::Ref to the declaration to get pointer to object
-        pu::ui::elm::TextBlock::Ref helloText;
+        ELM::TextBlock::Ref mainText;
+        ELM::Rectangle::Ref footerBkg;
+        ELM::TextBlock::Ref footerText;
 };
 
-class App : public pu::ui::Application {
+class App : public UI::Application {
     public:
         // set different namespace
         using Application::Application;

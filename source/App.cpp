@@ -1,11 +1,20 @@
 #include <App.hpp>
 
+// Footer::Footer() : Container:Container() {
+    
+// }
+
 CustomLayout::CustomLayout() : Layout::Layout() {
     // create TextBlock declared in header
-    this->helloText = pu::ui::elm::TextBlock::New(300, 300, "Hello World!");
-
+    this->mainText = ELM::TextBlock::New(25, 25, "Hello World!");
+    this->footerBkg = ELM::Rectangle::New(0, 620, 1280, 100, COLOR(0x40, 0x40, 0x40, 0xff));
+    this->footerText = ELM::TextBlock::New(25, 660, "[+] Return Home");
+    this->footerText->SetColor(COLOR(0x80, 0x80, 0x80, 0xff));
+    
     // add defined objects to layout
-    this->Add(this->helloText);
+    this->Add(this->mainText);
+    this->Add(this->footerBkg);
+    this->Add(this->footerText);
 }
 
 // define our onload for the app here
