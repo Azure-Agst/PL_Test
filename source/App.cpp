@@ -1,9 +1,5 @@
 #include <App.hpp>
 
-// Footer::Footer() : Container:Container() {
-    
-// }
-
 CustomLayout::CustomLayout() : Layout::Layout() {
     // create TextBlock declared in header
     this->mainText = ELM::TextBlock::New(25, 25, "Hello World!");

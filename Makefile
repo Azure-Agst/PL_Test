@@ -51,7 +51,9 @@ APP_AUTHOR	:=  Azure
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -fPIE
 
-CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
+# NOTE: I replaced -Wall with -w because I was tired 
+# of seeing warnings from the plutonium lib.
+CFLAGS	:=	-g -O2 -w -ffunction-sections \
 			$(ARCH) $(DEFINES)
 
 CFLAGS	+=	$(INCLUDE) -D__SWITCH__
@@ -67,7 +69,7 @@ LIBS := -lpu -lfreetype -lSDL2_mixer -lopusfile -lopus -lmodplug -lmpg123 -lvorb
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS := $(PORTLIBS) $(LIBNX) $(CURDIR)/Plutonium/Output
+LIBDIRS := $(PORTLIBS) $(LIBNX) $(CURDIR)/Plutonium/Plutonium/Output
 
 
 #---------------------------------------------------------------------------------
@@ -164,6 +166,7 @@ all: $(BUILD)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
+	@$(MAKE) --no-print-directory -C Plutonium
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
